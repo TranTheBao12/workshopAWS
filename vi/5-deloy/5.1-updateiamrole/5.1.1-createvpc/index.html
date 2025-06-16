@@ -8,27 +8,27 @@
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
 
-    <link rel="icon" href="/WORKSHOPAWS/images/favicon.png" type="image/png">
+    <link rel="icon" href="/workshopAWS/images/favicon.png" type="image/png">
 
 
     <title>Tạo IAM Role cho EC2 Instance Profile :: AWS System Manager</title>
 
     
-    <link href="/WORKSHOPAWS/css/nucleus.css?1750091997" rel="stylesheet">
-    <link href="/WORKSHOPAWS/css/fontawesome-all.min.css?1750091997" rel="stylesheet">
-    <link href="/WORKSHOPAWS/css/hybrid.css?1750091997" rel="stylesheet">
-    <link href="/WORKSHOPAWS/css/featherlight.min.css?1750091997" rel="stylesheet">
-    <link href="/WORKSHOPAWS/css/perfect-scrollbar.min.css?1750091997" rel="stylesheet">
-    <link href="/WORKSHOPAWS/css/auto-complete.css?1750091997" rel="stylesheet">
-    <link href="/WORKSHOPAWS/css/atom-one-dark-reasonable.css?1750091997" rel="stylesheet">
-    <link href="/WORKSHOPAWS/css/theme.css?1750091997" rel="stylesheet">
-    <link href="/WORKSHOPAWS/css/hugo-theme.css?1750091997" rel="stylesheet">
+    <link href="/workshopAWS/css/nucleus.css?1750092370" rel="stylesheet">
+    <link href="/workshopAWS/css/fontawesome-all.min.css?1750092370" rel="stylesheet">
+    <link href="/workshopAWS/css/hybrid.css?1750092370" rel="stylesheet">
+    <link href="/workshopAWS/css/featherlight.min.css?1750092370" rel="stylesheet">
+    <link href="/workshopAWS/css/perfect-scrollbar.min.css?1750092370" rel="stylesheet">
+    <link href="/workshopAWS/css/auto-complete.css?1750092370" rel="stylesheet">
+    <link href="/workshopAWS/css/atom-one-dark-reasonable.css?1750092370" rel="stylesheet">
+    <link href="/workshopAWS/css/theme.css?1750092370" rel="stylesheet">
+    <link href="/workshopAWS/css/hugo-theme.css?1750092370" rel="stylesheet">
     
-    <link href="/WORKSHOPAWS/css/theme-workshop.css?1750091997" rel="stylesheet">
+    <link href="/workshopAWS/css/theme-workshop.css?1750092370" rel="stylesheet">
     
     
 
-    <script src="/WORKSHOPAWS/js/jquery-3.3.1.min.js?1750091997"></script>
+    <script src="/workshopAWS/js/jquery-3.3.1.min.js?1750092370"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -39,7 +39,7 @@
     
 
   </head>
-  <body class="" data-url="/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/5.1.1-createvpc/">
+  <body class="" data-url="/workshopAWS/vi/5-deloy/5.1-updateiamrole/5.1.1-createvpc/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/WORKSHOPAWS/js/lunr.min.js?1750091997"></script>
-<script type="text/javascript" src="/WORKSHOPAWS/js/auto-complete.js?1750091997"></script>
+<script type="text/javascript" src="/workshopAWS/js/lunr.min.js?1750092370"></script>
+<script type="text/javascript" src="/workshopAWS/js/auto-complete.js?1750092370"></script>
 <script type="text/javascript">
     
-        var baseurl = "https:\/\/tranthebao12.github.io\/WORKSHOPAWS\/\/vi";
+        var baseurl = "https:\/\/tranthebao12.github.io\/workshopAWS\/\/vi";
     
 </script>
-<script type="text/javascript" src="/WORKSHOPAWS/js/search.js?1750091997"></script>
+<script type="text/javascript" src="/workshopAWS/js/search.js?1750092370"></script>
 
 
     
@@ -87,12 +87,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/1-introduce/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/1-introduce/">
+      <a href="/workshopAWS/vi/1-introduce/">
            <b> 1. </b> Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
@@ -113,12 +113,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/2-prerequiste/" title="Preparation" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/2-prerequiste/" title="Preparation" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/2-prerequiste/">
+      <a href="/workshopAWS/vi/2-prerequiste/">
            <b> 2. </b> Preparation
           
             <i class="fas fa-check read-icon"></i>
@@ -144,12 +144,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/2-prerequiste/2.1-createec2/" title="Chuẩn bị môi trường phát triển" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/2-prerequiste/2.1-createec2/" title="Chuẩn bị môi trường phát triển" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/2-prerequiste/2.1-createec2/">
+      <a href="/workshopAWS/vi/2-prerequiste/2.1-createec2/">
            <b> 2.1 </b> Chuẩn bị môi trường phát triển
           
             <i class="fas fa-check read-icon"></i>
@@ -175,12 +175,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Cài đặt Visual Studio 2022" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/" title="Cài đặt Visual Studio 2022" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/">
+      <a href="/workshopAWS/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/">
            <b> 2.1.1 </b> Cài đặt Visual Studio 2022
           
             <i class="fas fa-check read-icon"></i>
@@ -203,12 +203,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/2-prerequiste/2.1-createec2/2.1.2-createpublicsubnet/" title="Cài đặt AWS Toolkit cho Visual Studio" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/2-prerequiste/2.1-createec2/2.1.2-createpublicsubnet/" title="Cài đặt AWS Toolkit cho Visual Studio" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/2-prerequiste/2.1-createec2/2.1.2-createpublicsubnet/">
+      <a href="/workshopAWS/vi/2-prerequiste/2.1-createec2/2.1.2-createpublicsubnet/">
            <b> 2.1.2 </b> Cài đặt AWS Toolkit cho Visual Studio
           
             <i class="fas fa-check read-icon"></i>
@@ -231,12 +231,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Thêm vie.traineddata vào tessdata" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/" title="Thêm vie.traineddata vào tessdata" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/">
+      <a href="/workshopAWS/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/">
            <b> 2.1.3 </b> Thêm vie.traineddata vào tessdata
           
             <i class="fas fa-check read-icon"></i>
@@ -268,12 +268,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/2-prerequiste/2.2-createiamrole/" title="Cấu hình AWS CLI" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/2-prerequiste/2.2-createiamrole/" title="Cấu hình AWS CLI" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/2-prerequiste/2.2-createiamrole/">
+      <a href="/workshopAWS/vi/2-prerequiste/2.2-createiamrole/">
            <b> 2.2 </b> Cấu hình AWS CLI
           
             <i class="fas fa-check read-icon"></i>
@@ -296,12 +296,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/2-prerequiste/2.3-createiamrole/" title="Chuẩn bị mã nguồn" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/2-prerequiste/2.3-createiamrole/" title="Chuẩn bị mã nguồn" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/2-prerequiste/2.3-createiamrole/">
+      <a href="/workshopAWS/vi/2-prerequiste/2.3-createiamrole/">
            <b> 2.3 </b> Chuẩn bị mã nguồn
           
             <i class="fas fa-check read-icon"></i>
@@ -324,12 +324,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/2-prerequiste/2.4-createiamrole/" title="Kiểm tra cục bộ" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/2-prerequiste/2.4-createiamrole/" title="Kiểm tra cục bộ" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/2-prerequiste/2.4-createiamrole/">
+      <a href="/workshopAWS/vi/2-prerequiste/2.4-createiamrole/">
            <b> 2.4 </b> Kiểm tra cục bộ
           
             <i class="fas fa-check read-icon"></i>
@@ -359,12 +359,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/3-accessibilitytoinstances/" title="Triển khai Amazon S3" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/3-accessibilitytoinstances/" title="Triển khai Amazon S3" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/3-accessibilitytoinstances/">
+      <a href="/workshopAWS/vi/3-accessibilitytoinstances/">
            <b> 3. </b> Triển khai Amazon S3
           
             <i class="fas fa-check read-icon"></i>
@@ -390,12 +390,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/3-accessibilitytoinstances/3.1-public-instance/" title="Tạo S3 Bucket" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/3-accessibilitytoinstances/3.1-public-instance/" title="Tạo S3 Bucket" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/3-accessibilitytoinstances/3.1-public-instance/">
+      <a href="/workshopAWS/vi/3-accessibilitytoinstances/3.1-public-instance/">
            <b> 3.1. </b> Tạo S3 Bucket
           
             <i class="fas fa-check read-icon"></i>
@@ -418,12 +418,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/3-accessibilitytoinstances/3.2-private-instance/" title="Tạo thư mục trong S3 Bucket" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/3-accessibilitytoinstances/3.2-private-instance/" title="Tạo thư mục trong S3 Bucket" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/3-accessibilitytoinstances/3.2-private-instance/">
+      <a href="/workshopAWS/vi/3-accessibilitytoinstances/3.2-private-instance/">
            <b> 3.2. </b> Tạo thư mục trong S3 Bucket
           
             <i class="fas fa-check read-icon"></i>
@@ -446,12 +446,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/3-accessibilitytoinstances/3.3-private-instance/" title="Cấu hình quyền truy cập" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/3-accessibilitytoinstances/3.3-private-instance/" title="Cấu hình quyền truy cập" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/3-accessibilitytoinstances/3.3-private-instance/">
+      <a href="/workshopAWS/vi/3-accessibilitytoinstances/3.3-private-instance/">
            <b> 3.3. </b> Cấu hình quyền truy cập
           
             <i class="fas fa-check read-icon"></i>
@@ -474,12 +474,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/3-accessibilitytoinstances/3.4-private-instance/" title="Kiểm tra S3" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/3-accessibilitytoinstances/3.4-private-instance/" title="Kiểm tra S3" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/3-accessibilitytoinstances/3.4-private-instance/">
+      <a href="/workshopAWS/vi/3-accessibilitytoinstances/3.4-private-instance/">
            <b> 3.4. </b> Kiểm tra S3
           
             <i class="fas fa-check read-icon"></i>
@@ -509,12 +509,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/4-s3log/" title="Kiểm tra toàn bộ hệ thống" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/4-s3log/" title="Kiểm tra toàn bộ hệ thống" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/4-s3log/">
+      <a href="/workshopAWS/vi/4-s3log/">
            <b> 4. </b> Kiểm tra toàn bộ hệ thống
           
             <i class="fas fa-check read-icon"></i>
@@ -540,12 +540,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/4-s3log/4.1-updateiamrole/" title="Kiểm tra chức năng tải ảnh" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/4-s3log/4.1-updateiamrole/" title="Kiểm tra chức năng tải ảnh" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/4-s3log/4.1-updateiamrole/">
+      <a href="/workshopAWS/vi/4-s3log/4.1-updateiamrole/">
            <b> 4.1 </b> Kiểm tra chức năng tải ảnh
           
             <i class="fas fa-check read-icon"></i>
@@ -568,12 +568,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/4-s3log/4.2-creates3bucket/" title="Xử lý và xem kết quả" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/4-s3log/4.2-creates3bucket/" title="Xử lý và xem kết quả" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/4-s3log/4.2-creates3bucket/">
+      <a href="/workshopAWS/vi/4-s3log/4.2-creates3bucket/">
            <b> 4.2 </b> Xử lý và xem kết quả
           
             <i class="fas fa-check read-icon"></i>
@@ -603,12 +603,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/5-deloy/" title="Triển khai AWS Elastic Beanstalk " class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/5-deloy/" title="Triển khai AWS Elastic Beanstalk " class="dd-item 
         parent
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/5-deloy/">
+      <a href="/workshopAWS/vi/5-deloy/">
            <b> 5. </b> Triển khai AWS Elastic Beanstalk 
           
             <i class="fas fa-check read-icon"></i>
@@ -634,12 +634,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/" title="Chuẩn bị Cấu hình AWS Elastic Beanstalk" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/5-deloy/5.1-updateiamrole/" title="Chuẩn bị Cấu hình AWS Elastic Beanstalk" class="dd-item 
         parent
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/">
+      <a href="/workshopAWS/vi/5-deloy/5.1-updateiamrole/">
            <b> 5.1 </b> Chuẩn bị Cấu hình AWS Elastic Beanstalk
           
             <i class="fas fa-check read-icon"></i>
@@ -665,12 +665,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/5.1.1-createvpc/" title="Tạo IAM Role cho EC2 Instance Profile" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/5-deloy/5.1-updateiamrole/5.1.1-createvpc/" title="Tạo IAM Role cho EC2 Instance Profile" class="dd-item 
         
         active
         
         ">
-      <a href="/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/5.1.1-createvpc/">
+      <a href="/workshopAWS/vi/5-deloy/5.1-updateiamrole/5.1.1-createvpc/">
            <b> 5.1.1 </b> Tạo IAM Role cho EC2 Instance Profile
           
             <i class="fas fa-check read-icon"></i>
@@ -693,12 +693,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/5.1.2-createvpc-copy/" title="Tạo IAM Role cho Elastic Beanstalk Service" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/5-deloy/5.1-updateiamrole/5.1.2-createvpc-copy/" title="Tạo IAM Role cho Elastic Beanstalk Service" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/5.1.2-createvpc-copy/">
+      <a href="/workshopAWS/vi/5-deloy/5.1-updateiamrole/5.1.2-createvpc-copy/">
            <b> 5.1.2 </b> Tạo IAM Role cho Elastic Beanstalk Service
           
             <i class="fas fa-check read-icon"></i>
@@ -721,12 +721,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/5.1.3-createvpc-copy-2/" title="Tạo Key Pair" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/5-deloy/5.1-updateiamrole/5.1.3-createvpc-copy-2/" title="Tạo Key Pair" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/5.1.3-createvpc-copy-2/">
+      <a href="/workshopAWS/vi/5-deloy/5.1-updateiamrole/5.1.3-createvpc-copy-2/">
            <b> 5.1.3 </b> Tạo Key Pair
           
             <i class="fas fa-check read-icon"></i>
@@ -758,12 +758,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/5-deloy/5.2-creates3bucket/" title="Triển khai (Deploy) lên Elastic Beanstalk từ Visual Studio 2022" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/5-deloy/5.2-creates3bucket/" title="Triển khai (Deploy) lên Elastic Beanstalk từ Visual Studio 2022" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/5-deloy/5.2-creates3bucket/">
+      <a href="/workshopAWS/vi/5-deloy/5.2-creates3bucket/">
            <b> 5.2 </b> Triển khai (Deploy) lên Elastic Beanstalk từ Visual Studio 2022
           
             <i class="fas fa-check read-icon"></i>
@@ -786,12 +786,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/5-deloy/5.3-creates3bucket-copy/" title="Triển khai Ứng dụng" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/5-deloy/5.3-creates3bucket-copy/" title="Triển khai Ứng dụng" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/5-deloy/5.3-creates3bucket-copy/">
+      <a href="/workshopAWS/vi/5-deloy/5.3-creates3bucket-copy/">
            <b> 5.3 </b> Triển khai Ứng dụng
           
             <i class="fas fa-check read-icon"></i>
@@ -821,12 +821,12 @@
  
   
     
-    <li data-nav-id="/WORKSHOPAWS/vi/6-portfwd/" title="Dọn dẹp tài nguyên" class="dd-item 
+    <li data-nav-id="/workshopAWS/vi/6-portfwd/" title="Dọn dẹp tài nguyên" class="dd-item 
         
         
         
         ">
-      <a href="/WORKSHOPAWS/vi/6-portfwd/">
+      <a href="/workshopAWS/vi/6-portfwd/">
            <b> 6. </b> Dọn dẹp tài nguyên
           
             <i class="fas fa-check read-icon"></i>
@@ -874,7 +874,7 @@
                   
                     
                     
-                      <option id="en" value="https://tranthebao12.github.io/WORKSHOPAWS/5-deloy/5.1-updateiamrole/5.1.1-createvpc/">English</option>
+                      <option id="en" value="https://tranthebao12.github.io/workshopAWS/5-deloy/5.1-updateiamrole/5.1.1-createvpc/">English</option>
                     
                   
               
@@ -888,7 +888,7 @@
                   
                     
                     
-                      <option id="vi" value="https://tranthebao12.github.io/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/5.1.1-createvpc/" selected>Tiếng Việt</option>
+                      <option id="vi" value="https://tranthebao12.github.io/workshopAWS/vi/5-deloy/5.1-updateiamrole/5.1.1-createvpc/" selected>Tiếng Việt</option>
                     
                   
               
@@ -986,7 +986,7 @@
             
           
           
-            <a href='/WORKSHOPAWS/vi/'>IImagetovideo sử dụng S3 và công khai AWS Elastic Beanstalk </a> > <a href='/WORKSHOPAWS/vi/5-deloy/'>Triển khai AWS Elastic Beanstalk </a> > <a href='/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/'>Chuẩn bị Cấu hình AWS Elastic Beanstalk</a> > Tạo IAM Role cho EC2 Instance Profile
+            <a href='/workshopAWS/vi/'>IImagetovideo sử dụng S3 và công khai AWS Elastic Beanstalk </a> > <a href='/workshopAWS/vi/5-deloy/'>Triển khai AWS Elastic Beanstalk </a> > <a href='/workshopAWS/vi/5-deloy/5.1-updateiamrole/'>Chuẩn bị Cấu hình AWS Elastic Beanstalk</a> > Tạo IAM Role cho EC2 Instance Profile
           
         
           
@@ -1544,10 +1544,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/" title="Chuẩn bị Cấu hình AWS Elastic Beanstalk"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/workshopAWS/vi/5-deloy/5.1-updateiamrole/" title="Chuẩn bị Cấu hình AWS Elastic Beanstalk"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/WORKSHOPAWS/vi/5-deloy/5.1-updateiamrole/5.1.2-createvpc-copy/" title="Tạo IAM Role cho Elastic Beanstalk Service" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/workshopAWS/vi/5-deloy/5.1-updateiamrole/5.1.2-createvpc-copy/" title="Tạo IAM Role cho Elastic Beanstalk Service" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1557,19 +1557,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/WORKSHOPAWS/js/clipboard.min.js?1750091997"></script>
-    <script src="/WORKSHOPAWS/js/perfect-scrollbar.min.js?1750091997"></script>
-    <script src="/WORKSHOPAWS/js/perfect-scrollbar.jquery.min.js?1750091997"></script>
-    <script src="/WORKSHOPAWS/js/jquery.sticky.js?1750091997"></script>
-    <script src="/WORKSHOPAWS/js/featherlight.min.js?1750091997"></script>
-    <script src="/WORKSHOPAWS/js/highlight.pack.js?1750091997"></script>
+    <script src="/workshopAWS/js/clipboard.min.js?1750092370"></script>
+    <script src="/workshopAWS/js/perfect-scrollbar.min.js?1750092370"></script>
+    <script src="/workshopAWS/js/perfect-scrollbar.jquery.min.js?1750092370"></script>
+    <script src="/workshopAWS/js/jquery.sticky.js?1750092370"></script>
+    <script src="/workshopAWS/js/featherlight.min.js?1750092370"></script>
+    <script src="/workshopAWS/js/highlight.pack.js?1750092370"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/WORKSHOPAWS/js/modernizr.custom-3.6.0.js?1750091997"></script>
-    <script src="/WORKSHOPAWS/js/learn.js?1750091997"></script>
-    <script src="/WORKSHOPAWS/js/hugo-learn.js?1750091997"></script>
+    <script src="/workshopAWS/js/modernizr.custom-3.6.0.js?1750092370"></script>
+    <script src="/workshopAWS/js/learn.js?1750092370"></script>
+    <script src="/workshopAWS/js/hugo-learn.js?1750092370"></script>
 
-    <link href="/WORKSHOPAWS/mermaid/mermaid.css?1750091997" rel="stylesheet" />
-    <script src="/WORKSHOPAWS/mermaid/mermaid.js?1750091997"></script>
+    <link href="/workshopAWS/mermaid/mermaid.css?1750092370" rel="stylesheet" />
+    <script src="/workshopAWS/mermaid/mermaid.js?1750092370"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
