@@ -1,0 +1,197 @@
+[
+{
+	"uri": "/vi/2-prerequiste/2.1-createec2/2.1.1-createvpc/",
+	"title": "Cài đặt Visual Studio 2022",
+	"tags": [],
+	"description": "",
+	"content": "Cài đặt Visual Studio 2022 với ASP.NET workload Truy cập trang tải Visual Studio tại:\nhttps://visualstudio.microsoft.com/downloads/\nTải xuống và chạy Visual Studio 2022 Community/Professional/Enterprise Installer.\nTrong cửa sổ cài đặt:\nChọn workload ASP.NET and web development. (Tùy chọn) Bạn có thể bật thêm .NET desktop development nếu cần phát triển ứng dụng desktop. Nhấn Install để bắt đầu cài đặt.\nSau khi cài đặt hoàn tất, khởi động Visual Studio và đảm bảo bạn có thể tạo project ASP.NET Core Web App mới.\n"
+},
+{
+	"uri": "/vi/5-deloy/5.1-updateiamrole/",
+	"title": "Chuẩn bị Cấu hình AWS Elastic Beanstalk",
+	"tags": [],
+	"description": "",
+	"content": "5.1.1. Tạo IAM Role cho EC2 Instance Profile (Role mà máy chủ EC2 sẽ sử dụng) 5.1.2. Tạo IAM Role cho Elastic Beanstalk Service (Role mà dịch vụ Elastic Beanstalk sẽ sử dụng) 5.1.3. Tạo Key Pair "
+},
+{
+	"uri": "/vi/2-prerequiste/2.1-createec2/",
+	"title": "Chuẩn bị môi trường phát triển",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, bạn sẽ chuẩn bị công cụ và phần mềm cần thiết để phát triển và kiểm thử ứng dụng.\nYêu cầu chuẩn bị: Cài đặt Visual Studio 2022\nĐảm bảo đã chọn workload ASP.NET and web development khi cài đặt Visual Studio.\nCài đặt AWS CLI\nKiểm tra phiên bản AWS CLI bằng lệnh:\naws --version "
+},
+{
+	"uri": "/vi/1-introduce/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "Giới thiệu Mục tiêu: Giới thiệu dự án và dịch vụ AWS.\nNội dung:\nDự án ImageToVideoWeb:\nỨng dụng web ASP.NET Core cho phép tải ảnh, trích xuất văn bản (OCR), dịch văn bản (Google Translate), tạo âm thanh (Google TTS), và tạo video (FFmpeg). Sử dụng Amazon S3 để lưu trữ tệp để triển khai. Amazon S3:\nLưu trữ ảnh đầu vào trong thư mục uploads/. Lưu trữ văn bản và âm thanh tạm thời trong thư mục temp/. Lưu trữ video đầu ra trong thư mục outputs/. Kiến trúc hoạt động:\nGiao diện frontend gọi controller → Tải ảnh lên S3 → Xử lý cục bộ (OCR, dịch, TTS, tạo video) → Lưu video lên S3 → Hiển thị video từ S3. "
+},
+{
+	"uri": "/vi/",
+	"title": "IImagetovideo sử dụng S3 và công khai AWS Elastic Beanstalk ",
+	"tags": [],
+	"description": "",
+	"content": "IImagetovideo sử dụng S3 và công khai AWS Elastic Beanstalk Tổng quan Trong bài lab này, bạn sẽ tìm hiểu S3 và AWS Elastic Beanstalk. Thực hành tạo kết nối đến máy chủ public .\nNội dung Giới thiệu Các bước chuẩn bị Triển khai Amazon S3 Kiểm tra toàn bộ hệ thống Triển khai AWS Elastic Beanstalk Dọn dẹp tài nguyên "
+},
+{
+	"uri": "/vi/4-s3log/4.1-updateiamrole/",
+	"title": "Kiểm tra chức năng tải ảnh",
+	"tags": [],
+	"description": "",
+	"content": "Bước 1: Tải ảnh lên Để xác nhận rằng chức năng tải ảnh hoạt động đúng, thực hiện theo các bước sau:\nCác bước thực hiện: Chạy ứng dụng:\nKhởi chạy server backend hoặc ứng dụng frontend có xử lý chức năng tải ảnh. Tải ảnh thử nghiệm:\nSử dụng giao diện web để tải một ảnh thử. Ví dụ: ảnh có chứa văn bản tiếng Việt để kiểm tra khả năng xử lý ngôn ngữ. Kiểm tra S3 Bucket:\nMở giao diện AWS S3 Console. Truy cập vào bucket của bạn. Kiểm tra ảnh có xuất hiện trong thư mục uploads/. Yêu cầu chụp ảnh minh họa: Đảm bảo rằng ứng dụng của bạn có quyền tải ảnh lên S3. Nếu xảy ra lỗi, hãy kiểm tra lại IAM Role và bucket policy.\n"
+},
+{
+	"uri": "/vi/5-deloy/5.1-updateiamrole/5.1.1-createvpc/",
+	"title": "Tạo IAM Role cho EC2 Instance Profile",
+	"tags": [],
+	"description": "",
+	"content": "5.1.1. Tạo IAM Role cho EC2 Instance Profile (Role mà máy chủ EC2 sẽ sử dụng) Đây là role mà các instance EC2 trong môi trường Elastic Beanstalk của bạn sẽ đảm nhiệm. Nó cần các quyền tối thiểu để hoạt động trong môi trường Elastic Beanstalk, bao gồm việc giao tiếp với các dịch vụ AWS khác như S3, CloudWatch, v.v.\nCác bước: Đăng nhập vào AWS Management Console và điều hướng đến dịch vụ IAM (Identity and Access Management).\nTrong thanh điều hướng bên trái, chọn Roles.\nNhấp vào nút Create role.\nTại mục Select type of trusted entity, chọn AWS service.\nTại mục Choose a use case, chọn EC2, sau đó nhấp Next. Thêm permissions:\nTìm kiếm và chọn policy AWSElasticBeanstalkWebTier. Tìm kiếm và chọn policy AWSElasticBeanstalkWorkerTier (nếu ứng dụng của bạn có thể sử dụng worker environment, mặc dù cho ứng dụng web thông thường thì WebTier thường là đủ, nhưng thêm vào sẽ an toàn hơn). Tìm kiếm và chọn policy AmazonS3FullAccess (hoặc một policy S3 tùy chỉnh với các quyền cụ thể hơn nếu bạn muốn hạn chế quyền truy cập S3). Nhấp Next.\nReview và Create:\nĐặt Role name (ví dụ: ImageToVideoWeb-EC2-InstanceRole). Kiểm tra lại các policy đã đính kèm. Nhấp Create role. "
+},
+{
+	"uri": "/vi/3-accessibilitytoinstances/3.1-public-instance/",
+	"title": "Tạo S3 Bucket",
+	"tags": [],
+	"description": "",
+	"content": "Bước 1: Tạo một S3 Bucket Truy cập AWS Management Console và vào dịch vụ S3.\nNhấn Create bucket. Nhập các thông tin sau:\nBucket name: imagetovideoweb-demo-\u0026lt;UNIQUE-ID\u0026gt; (ví dụ: imagetovideoweb-demo-20250608) Region: us-east-1 (N. Virginia) Trong phần Block Public Access, bỏ chọn Block all public access (chỉ áp dụng cho demo, trong thực tế nên sử dụng IAM để kiểm soát truy cập).\nNhấn Create bucket để hoàn tất. Cấu hình này chỉ dùng để trình diễn. Trong môi trường triển khai thực tế, bạn nên kiểm soát quyền truy cập thông qua IAM thay vì cho phép truy cập công khai.\n"
+},
+{
+	"uri": "/vi/2-prerequiste/2.1-createec2/2.1.2-createpublicsubnet/",
+	"title": "Cài đặt AWS Toolkit cho Visual Studio",
+	"tags": [],
+	"description": "",
+	"content": "Cài đặt và thiết lập AWS Toolkit cho Visual Studio Mở Visual Studio 2022.\nTrên thanh menu trên cùng, chọn:\nExtensions → Manage Extensions.\nTrong tab Online, nhập từ khóa AWS Toolkit for Visual Studio để tìm kiếm.\nNhấn Download, sau đó khởi động lại Visual Studio để hoàn tất quá trình cài đặt.\nThiết lập ban đầu Sau khi khởi động lại Visual Studio, vào: Extentions → AWS Toolkit for .NET Refactoringr.\nTrong khung AWS Toolkit for .NET Refactoringr, nhấn GET START để nhập thông tin người dùng.\nBạn có thể đăng nhập bằng một trong hai cách sau:\nThông tin xác thực IAM (ID khóa truy cập và Khóa truy cập bí mật) hoặc\nSSO (Đăng nhập một lần) nếu tổ chức của bạn sử dụng AWS SSO.\nSau khi đăng nhập thành công, bạn sẽ thấy danh sách các dịch vụ và tài nguyên AWS trong tài khoản của mình. Ghi chú Hãy đảm bảo tài khoản IAM của bạn có đầy đủ quyền để thao tác với EC2, Lambda, S3 và các dịch vụ AWS mà bạn sẽ sử dụng trong dự án. AWS Toolkit cho phép bạn triển khai ứng dụng ASP.NET Core lên các dịch vụ như Elastic Beanstalk hoặc Lambda trực tiếp từ Visual Studio. "
+},
+{
+	"uri": "/vi/2-prerequiste/2.2-createiamrole/",
+	"title": "Cấu hình AWS CLI",
+	"tags": [],
+	"description": "",
+	"content": "Cấu hình AWS CLI Trong bước này, chúng ta sẽ cấu hình AWS Command Line Interface (CLI) để có thể thao tác với các dịch vụ AWS từ dòng lệnh.\n1. Mở Terminal hoặc Command Prompt Tùy theo hệ điều hành bạn sử dụng:\nWindows: Mở Command Prompt hoặc PowerShell. Linux/macOS: Mở Terminal. 2. Chạy lệnh aws configure Nhập Access Key, Secret Key, region (us-east-1), output (json) sau đó kiểm tra bằng lệnh aws sts get-caller-identity aws configure "
+},
+{
+	"uri": "/vi/2-prerequiste/",
+	"title": "Preparation",
+	"tags": [],
+	"description": "",
+	"content": "\rTrước khi bắt đầu bài thực hành, bạn cần hoàn thành các bước chuẩn bị môi trường và công cụ cần thiết bên dưới.\nNội dung chuẩn bị: Cài đặt công cụ:\nCài đặt .NET SDK (ASP.NET Core). Cài đặt FFmpeg để tạo video. Cài đặt Tesseract OCR để trích xuất văn bản từ ảnh. Cài đặt Google Cloud SDK nếu sử dụng dịch vụ TTS và Translate từ Google. Cấu hình AWS CLI:\nCài đặt AWS CLI phù hợp với hệ điều hành. Cấu hình AWS CLI với lệnh: aws configure Nhập Access Key, Secret Key, vùng (region) và định dạng đầu ra (output format). Chuẩn bị mã nguồn:\nClone hoặc tải dự án ImageToVideoWeb. Kiểm tra các thư mục như uploads/, temp/, outputs/ đã tồn tại hoặc tạo mới. Cấu hình thông tin bucket S3 và các khóa API (Google API Key, AWS S3 config, v.v.) trong appsettings.json. Kiểm tra cục bộ:\nChạy ứng dụng ở môi trường local: Liên kết tham khảo: Tài liệu .NET Tài liệu AWS CLI Tài liệu Google Cloud SDK "
+},
+{
+	"uri": "/vi/5-deloy/5.1-updateiamrole/5.1.2-createvpc-copy/",
+	"title": "Tạo IAM Role cho Elastic Beanstalk Service",
+	"tags": [],
+	"description": "",
+	"content": "5.1.1. Tạo IAM Role cho Elastic Beanstalk Service (Vai trò mà máy chủ EC2 sẽ sử dụng) Đây là vai trò mà các phiên bản EC2 trong môi trường Elastic Beanstalk của bạn sẽ đảm nhiệm. Nó cần các quyền tối thiểu để hoạt động trong môi trường Elastic Beanstalk, bao gồm giao tiếp với các dịch vụ AWS khác như S3, CloudWatch, v.v.\nCác bước: Đăng nhập vào AWS Management Console và điều hướng đến dịch vụ IAM (Quản lý danh tính và quyền truy cập). Trong thanh điều hướng bên trái, chọn Vai trò. Nhấp vào nút Tạo vai trò. Trong phần Chọn loại thực thể đáng tin cậy, hãy chọn Dịch vụ AWS. Trong phần Chọn trường hợp sử dụng, hãy chọn EC2, sau đó nhấp vào Tiếp theo. Thêm quyền: Tìm kiếm và chọn chính sách AWSElasticBeanstalkWebTier. Tìm kiếm và chọn chính sách AWSElasticBeanstalkWorkerTier (nếu ứng dụng của bạn có thể sử dụng môi trường worker, mặc dù đối với ứng dụng web thông thường, WebTier thường đủ, nhưng sẽ an toàn hơn nếu thêm chính sách này). Tìm kiếm và chọn chính sách AmazonS3FullAccess (hoặc chính sách S3 tùy chỉnh với các quyền cụ thể hơn nếu bạn muốn hạn chế quyền truy cập S3). Nếu ứng dụng của bạn cần truy cập vào các dịch vụ AWS khác (ví dụ: DynamoDB, RDS, SQS, SNS), hãy thêm các chính sách tương ứng. Nhấp vào Tiếp theo. Thẻ (Tùy chọn): Thêm các cặp thẻ khóa-giá trị khi cần để sắp xếp tài nguyên của bạn, sau đó nhấp vào Tiếp theo. Xem lại và Tạo: Đặt Tên vai trò (ví dụ: ImageToVideoWeb-EC2-AWSElasticBeanstalkWebTier-InstanceRole). Xem lại các chính sách đính kèm. Nhấp vào Tạo vai trò. "
+},
+{
+	"uri": "/vi/3-accessibilitytoinstances/3.2-private-instance/",
+	"title": "Tạo thư mục trong S3 Bucket",
+	"tags": [],
+	"description": "",
+	"content": "Bước 2: Tạo thư mục trong bucket Sau khi đã tạo bucket, bạn cần tạo các thư mục con để lưu trữ tệp một cách có tổ chức.\nThực hiện: Bước 1:\nTruy cập vào bucket vừa tạo. Nhấn nút Create folder. Bước 2:\nNhập tên thư mục, ví dụ: uploads/ (dùng để lưu ảnh đầu vào) temp/ (dùng để lưu file văn bản và âm thanh tạm) outputs/ (dùng để lưu video đầu ra) Nhấn Create folder để tạo từng thư mục. Sau khi tạo xong, giao diện cây thư mục trong bucket sẽ như sau:\nCác thư mục này không thực sự là thư mục vật lý mà chỉ là key prefix trong S3, nhưng vẫn rất hữu ích để tổ chức nội dung dễ quản lý.\n"
+},
+{
+	"uri": "/vi/5-deloy/5.2-creates3bucket/",
+	"title": "Triển khai (Deploy) lên Elastic Beanstalk từ Visual Studio 2022",
+	"tags": [],
+	"description": "",
+	"content": "Triển khai (Deploy) lên Elastic Beanstalk từ Visual Studio 2022 Điều kiện tiên quyết: Đảm bảo bạn đã cài đặt AWS Toolkit for Visual Studio và đã kết nối với tài khoản AWS của mình trong Visual Studio.\nCác bước: Trong Visual Studio, nhấp chuột phải vào dự án ASP.NET Core của bạn trong Solution Explorer.\nChọn Publish to AWS Elastic Beanstalk\u0026hellip;.\n(Đảm bảo bạn đã đăng nhập và kết nối đúng tài khoản AWS trong AWS Explorer của Visual Studio trước khi thực hiện bước này.) Hộp thoại Publish to Elastic Beanstalk sẽ xuất hiện. Cấu hình các mục sau:\nDeployment Target: Chọn Create a new application environment. Account Region: Chọn khu vực AWS mà bạn muốn triển khai (ví dụ: US East (N. Virginia) us-east-1). Nhấp Next. Application Environment:\nApplication Name: Nhập ImageToVideoWeb. Environment Name: Nhập ImageToVideoWeb-env. Platform: Environment type: Chọn Web server environment. Platform: Chọn .NET on Windows Server. Platform Branch: Chọn phiên bản Windows Server phù hợp (ví dụ: Windows Server Core hoặc Windows Server full). Platform Version: Chọn phiên bản .NET (ví dụ: .NET 8 (64bit Amazon Linux 2 / Windows Server 2022)) hoặc phiên bản .NET 8 mới nhất được hỗ trợ. Nhấp Next. AWS Options:\nInstance type: Chọn t3.micro (đủ điều kiện Free Tier cho mục đích thử nghiệm). EC2 Key pair: Chọn ImageToVideoWeb-KeyPair đã tạo ở bước 4.1.3. EC2 security groups: Để mặc định hoặc tạo một nhóm bảo mật mới nếu cần các quy tắc tùy chỉnh. Application Health Check URL: Để mặc định hoặc tùy chỉnh nếu ứng dụng của bạn có health check endpoint riêng. Root Folder: Mặc định là / cho ứng dụng web. Use Enhanced Health Reporting: Có thể bật hoặc tắt tùy nhu cầu giám sát. Enable Rolling Deployments: Có thể bật hoặc tắt. Service role: Chọn role đã tạo ở bước 4.1.2 (ví dụ: ImageToVideoWeb-ServiceRole). Instance profile: Chọn role đã tạo ở bước 4.1.1 (ví dụ: ImageToVideoWeb-EC2-InstanceRole). Nhấp Next. Application Options:\nDeployment bundle type: Chọn Full .NET Core deployment (Self-contained) nếu bạn muốn ứng dụng chứa tất cả các dependencies của .NET runtime. Chọn Framework-dependent deployment nếu bạn tin rằng .NET runtime đã được cài đặt sẵn trên instance hoặc bạn sẽ tự cài đặt nó. Với Elastic Beanstalk cho .NET trên Windows, Self-contained thường được khuyến nghị để đảm bảo môi trường đầy đủ. Các tùy chọn khác (Environment Variables, .NET Core Build and Publish Options) có thể cấu hình nếu cần. Nhấp Next. Review:\nKiểm tra lại tất cả các cài đặt. Nhấp Publish để bắt đầu quá trình tạo ứng dụng và môi trường Elastic Beanstalk. "
+},
+{
+	"uri": "/vi/4-s3log/4.2-creates3bucket/",
+	"title": "Xử lý và xem kết quả",
+	"tags": [],
+	"description": "",
+	"content": "Bước 2: Xử lý và xem kết quả Sau khi tải ảnh lên thành công, bạn sẽ tiến hành xử lý ảnh để tạo video và kiểm tra kết quả.\nCác bước thực hiện: Kiểm tra giao diện \u0026ldquo;EditTextList\u0026rdquo;:\nGiao diện này hiển thị kết quả OCR từ ảnh đã tải. Ngoài văn bản gốc, giao diện cũng hiển thị phần văn bản đã được dịch sang tiếng Việt hoặc ngôn ngữ khác. Tạo video từ văn bản:\nNhấn nút \u0026ldquo;Create Video\u0026rdquo;. Hệ thống sẽ xử lý và lưu video đầu ra vào thư mục outputs/ trong S3 bucket. Xem video:\nTruy cập giao diện \u0026ldquo;Result\u0026rdquo; để xem video được tạo ra từ ảnh gốc. Nếu không thấy video trong giao diện \u0026ldquo;Result\u0026rdquo;, hãy kiểm tra lại log hệ thống hoặc trạng thái xử lý. Video được lưu tại S3 \u0026gt; outputs/ nếu thành công.\n"
+},
+{
+	"uri": "/vi/3-accessibilitytoinstances/3.3-private-instance/",
+	"title": "Cấu hình quyền truy cập",
+	"tags": [],
+	"description": "",
+	"content": "Bước 3: Cấu hình quyền truy cập Để cho phép quyền đọc/ghi cho mục đích demo, ta sẽ thêm một bucket policy cấp quyền cho một người dùng IAM cụ thể.\nLưu ý: Chính sách này cấp quyền truy cập tương đối mở để phục vụ demo. Trong môi trường thực tế, bạn nên sử dụng IAM role với quyền hạn chế và chỉ cho truy cập riêng tư.\nHướng dẫn: Bước 1:\nTruy cập vào bucket của bạn trong S3 Console. Chuyển đến tab Permissions. Bước 2:\nTrong phần Bucket policy, nhấn Edit. Bước 3:\nDán đoạn JSON sau vào trình soạn thảo: Nhớ thay bằng thông tin ngươi dùng đã tạo trước đó { \u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;, \u0026#34;Statement\u0026#34;: [ { \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Principal\u0026#34;: { \u0026#34;AWS\u0026#34;: \u0026#34;arn:aws:iam::612674025610:user/laptrinh\u0026#34; }, \u0026#34;Action\u0026#34;: [ \u0026#34;s3:PutObject\u0026#34;, \u0026#34;s3:GetObject\u0026#34;, \u0026#34;s3:DeleteObject\u0026#34; ], \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::imagetovideoweb-demo-20250608/*\u0026#34; }, { \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Principal\u0026#34;: { \u0026#34;AWS\u0026#34;: \u0026#34;arn:aws:iam::612674025610:user/laptrinh\u0026#34; }, \u0026#34;Action\u0026#34;: \u0026#34;s3:ListBucket\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::imagetovideoweb-demo-20250608\u0026#34; }, { \u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;, \u0026#34;Principal\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;Action\u0026#34;: \u0026#34;s3:GetObject\u0026#34;, \u0026#34;Resource\u0026#34;: \u0026#34;arn:aws:s3:::imagetovideoweb-demo-20250608/*\u0026#34; } ] } "
+},
+{
+	"uri": "/vi/2-prerequiste/2.3-createiamrole/",
+	"title": "Chuẩn bị mã nguồn",
+	"tags": [],
+	"description": "",
+	"content": "\rTrước khi bắt đầu lab, bạn cần hoàn tất các bước thiết lập môi trường và công cụ dưới đây.\nNội dung chuẩn bị: Clone mã nguồn hoặc tải file ZIP: Clone từ GitHub hoặc tải file nén (ZIP) của dự án ImageToVideoWeb. Giải nén và mở trong IDE (Visual Studio, VS Code, Rider\u0026hellip;). link: https://github.com/TranTheBao12/Workshop1_AWS.git Cập nhật file appsettings.json: { \u0026#34;Gemini\u0026#34;: { \u0026#34;ApiKey\u0026#34;: \u0026#34;AIzaSyDJfsJxA67gB7IHc-lCedeX26I6YXcuJkA\u0026#34; }, \u0026#34;Logging\u0026#34;: { \u0026#34;LogLevel\u0026#34;: { \u0026#34;Default\u0026#34;: \u0026#34;Information\u0026#34;, \u0026#34;Microsoft.AspNetCore\u0026#34;: \u0026#34;Warning\u0026#34; } }, \u0026#34;AllowedHosts\u0026#34;: \u0026#34;*\u0026#34;, \u0026#34;GeminiApiKey\u0026#34;: \u0026#34;xxxxxxxxxxxxxxxxxxxxxxxxxx\u0026#34;, \u0026#34;AWS\u0026#34;: { \u0026#34;Region\u0026#34;: \u0026#34;us-east-1\u0026#34;, \u0026#34;S3_BUCKET_NAME\u0026#34;: \u0026#34;imagetovideoweb-demo-20250608\u0026#34;, \u0026#34;AccessKeyId\u0026#34;: \u0026#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\u0026#34;, \u0026#34;SecretAccessKey\u0026#34;: \u0026#34;xxxxxxxxxxxxxxxxxx\u0026#34; } } "
+},
+{
+	"uri": "/vi/5-deloy/5.1-updateiamrole/5.1.3-createvpc-copy-2/",
+	"title": "Tạo Key Pair",
+	"tags": [],
+	"description": "",
+	"content": "5.1.3. Tạo Key Pair Key pair là cần thiết để bạn có thể kết nối SSH (hoặc RDP cho Windows) vào các instance EC2 trong môi trường Elastic Beanstalk của mình, phục vụ cho việc kiểm tra hoặc gỡ lỗi.\nCác bước: Đăng nhập vào AWS Management Console và điều hướng đến dịch vụ EC2 (Elastic Compute Cloud). Trong thanh điều hướng bên trái, dưới mục Network \u0026amp; Security, chọn Key Pairs. Nhấp vào nút Create key pair. Đặt tên cho Key pair (ví dụ: ImageToVideoWeb-KeyPair). Chọn Key pair type là RSA và Private key format là .pem (cho Linux SSH client) hoặc .ppk (nếu bạn dùng PuTTY trên Windows). Đối với môi trường Windows, .pem cũng hoạt động với các công cụ SSH tích hợp hoặc bạn có thể chuyển đổi sang .ppk sau này. Hãy chọn .pem để phổ biến. Nhấp Create key pair. Tệp khóa riêng tư (.pem hoặc .ppk) sẽ được tự động tải về trình duyệt của bạn. Lưu trữ tệp này ở nơi an toàn và không chia sẻ nó. "
+},
+{
+	"uri": "/vi/2-prerequiste/2.1-createec2/2.1.3-createprivatesubnet/",
+	"title": "Thêm vie.traineddata vào tessdata",
+	"tags": [],
+	"description": "",
+	"content": "Thêm vie.traineddata vào Thư mục tessdata Trong bước này, chúng ta sẽ tải xuống và thêm tệp dữ liệu tiếng Việt vie.traineddata vào thư mục tessdata trong dự án của bạn. Điều này là bắt buộc nếu bạn dự định sử dụng Tesseract OCR để nhận dạng văn bản tiếng Việt.\n1. Tải xuống vie.traineddata Truy cập kho lưu trữ GitHub chính thức của dữ liệu ngôn ngữ Tesseract OCR:\nhttps://github.com/tesseract-ocr/tessdata Xác định vị trí tệp vie.traineddata và nhấp vào Tải xuống.\nNgoài ra, hãy sử dụng liên kết trực tiếp này để tải xuống: Tải xuống vie.traineddata\n2. Tạo thư mục tessdata trong dự án của bạn Trong Visual Studio, nhấp chuột phải vào thư mục gốc của dự án. Chọn Thêm → Thư mục mới và đặt tên là tessdata. Nhấp chuột phải vào tessdata → Thêm → Mục hiện có. Chọn tệp vie.traineddata đã tải xuống và nhấp vào Thêm. 📌 Đảm bảo thuộc tính Sao chép vào thư mục đầu ra của vie.traineddata được đặt thành Sao chép nếu mới hơn hoặc Luôn sao chép.\n3. Xác minh cấu trúc thư mục Thư mục dự án của bạn bây giờ sẽ trông như sau: "
+},
+{
+	"uri": "/vi/3-accessibilitytoinstances/",
+	"title": "Triển khai Amazon S3",
+	"tags": [],
+	"description": "",
+	"content": "Trong phần này, chúng ta sẽ triển khai Amazon S3 để lưu trữ các tệp đầu vào, tạm thời và đầu ra phục vụ quá trình xử lý ảnh thành video.\nNội dung 3.1. Tạo và cấu hình Bucket S3 3.2. Cấu hình phân quyền và chính sách truy cập\n"
+},
+{
+	"uri": "/vi/5-deloy/5.3-creates3bucket-copy/",
+	"title": "Triển khai Ứng dụng",
+	"tags": [],
+	"description": "",
+	"content": "5.3 Triển khai Ứng dụng: Chờ 5-10 phút (hoặc có thể lâu hơn tùy thuộc vào độ phức tạp của môi trường và lưu lượng truy cập AWS) để Elastic Beanstalk tạo môi trường, bao gồm các instance EC2, load balancer (nếu có), auto scaling group, v.v., và triển khai ứng dụng của bạn.\nTheo dõi tiến trình triển khai:\nBạn có thể theo dõi tiến trình trong cửa sổ Output của Visual Studio (chọn \u0026ldquo;AWS Deployment\u0026rdquo; hoặc \u0026ldquo;AWS Toolkit\u0026rdquo;). Hoặc theo dõi trực tiếp trên AWS Elastic Beanstalk Console trong trình duyệt của bạn. Lấy URL môi trường: Sau khi môi trường chuyển sang trạng thái \u0026ldquo;Health: Ok\u0026rdquo; hoặc \u0026ldquo;Ready\u0026rdquo;, bạn sẽ thấy URL môi trường (ví dụ: http://imagetovideoweb-env.eba-xxxx.us-east-1.elasticbeanstalk.com) hiển thị trong AWS Toolkit hoặc trên bảng điều khiển Elastic Beanstalk.\nKiểm tra Ứng dụng: Truy cập URL môi trường đã lấy được ở bước trước trong trình duyệt web của bạn. Kiểm tra giao diện web để đảm bảo ứng dụng ASP.NET Core của bạn đang chạy đúng cách và hiển thị giao diện mong muốn. Thực hiện các chức năng chính của ứng dụng (bao gồm chức năng \u0026ldquo;Image to Video\u0026rdquo; nếu đó là tính năng chính) để xác nhận mọi thứ hoạt động như mong đợi. "
+},
+{
+	"uri": "/vi/2-prerequiste/2.4-createiamrole/",
+	"title": "Kiểm tra cục bộ",
+	"tags": [],
+	"description": "",
+	"content": "\rTrước khi bắt đầu bài lab, hãy đảm bảo bạn đã hoàn thành các bước thiết lập môi trường và công cụ dưới đây.\nCác bước chuẩn bị: Clone hoặc tải mã nguồn:\nClone dự án ImageToVideoWeb từ GitHub hoặc tải file ZIP về. Giải nén và mở dự án bằng IDE mà bạn sử dụng (Visual Studio, VS Code, v.v.). Kiểm tra cục bộ:\nChạy dự án trong Visual Studio bằng cách nhấn F5. Tải thử một ảnh lên và kiểm tra các chức năng: Nhận diện văn bản (OCR) hoạt động đúng. Tạo video thành công. Chụp màn hình giao diện web đang chạy cục bộ. "
+},
+{
+	"uri": "/vi/3-accessibilitytoinstances/3.4-private-instance/",
+	"title": "Kiểm tra S3",
+	"tags": [],
+	"description": "",
+	"content": "Bước 4: Kiểm tra S3 Sau khi đã tạo thư mục và cấu hình quyền truy cập, giờ là lúc kiểm tra việc tải file lên bucket bằng AWS CLI.\nHướng dẫn: Bước 1:\nChạy lệnh sau trong Terminal (thay test.jpg bằng tên file bạn muốn tải): Kiểm tra trong S3 Console, thư mục uploads/ có test.jpg. aws s3 cp test.jpg s3://imagetovideoweb-demo-20250608/uploads/ "
+},
+{
+	"uri": "/vi/4-s3log/",
+	"title": "Kiểm tra toàn bộ hệ thống",
+	"tags": [],
+	"description": "",
+	"content": "Kiểm tra toàn bộ hệ thống (30 phút) Mục tiêu: Đảm bảo ứng dụng hoạt động xuyên suốt — từ bước tải ảnh lên cho đến xem được video đầu ra.\n1: Tải ảnh lên 2: Xử lý và xem kết quả 4.1. Create and configure an S3 Bucket 4.2. Set permissions and access policies\n"
+},
+{
+	"uri": "/vi/5-deloy/",
+	"title": "Triển khai AWS Elastic Beanstalk ",
+	"tags": [],
+	"description": "",
+	"content": "Triển khai AWS Elastic Beanstalk Mục tiêu: Đảm bảo ứng dụng hoạt động liền mạch — từ việc tải ảnh lên đến việc xem video đầu ra.\n1: Tải ảnh lên 2: Xử lý và xem kết quả 5.1. Chuẩn bị cấu hình AWS Elastic Beanstalk 5.2. Triển khai lên Elastic Beanstalk từ Visual Studio 2022 5.3 Triển khai ứng dụng\n"
+},
+{
+	"uri": "/vi/6-portfwd/",
+	"title": "Dọn dẹp tài nguyên",
+	"tags": [],
+	"description": "",
+	"content": "6. Dọn dẹp tài nguyên (15 phút) Mục tiêu: Xóa tất cả các tài nguyên AWS đã tạo trong workshop để tránh phát sinh chi phí không mong muốn.\nThao tác: Xóa Môi trường Elastic Beanstalk:\nĐăng nhập vào AWS Management Console và điều hướng đến dịch vụ Elastic Beanstalk. Trong danh sách các ứng dụng, chọn ứng dụng ImageToVideoWeb của bạn. Nhấp vào Environment name (ví dụ: ImageToVideoWeb-env). Trong trang chi tiết môi trường, chọn Actions (Hành động) và sau đó chọn Terminate Environment (Chấm dứt môi trường). Xác nhận việc chấm dứt môi trường khi được yêu cầu. Quá trình này có thể mất vài phút. Xóa S3 Bucket: Sau khi môi trường Elastic Beanstalk đã được chấm dứt hoàn toàn (đảm bảo không còn instance nào đang sử dụng bucket), điều hướng đến dịch vụ Amazon S3. Tìm và chọn bucket có tên imagetovideoweb-demo-\u0026lt;UNIQUE-ID\u0026gt; của bạn. Để xóa một bucket, trước tiên bạn cần xóa tất cả các đối tượng (files/folders) bên trong nó. Nhấp vào bucket, chọn tất cả các đối tượng, sau đó chọn Delete và làm theo hướng dẫn xác nhận. Sau khi bucket trống, quay lại danh sách các bucket, chọn bucket của bạn và nhấp Delete bucket. Nhập tên bucket để xác nhận việc xóa. Xóa IAM Roles và Key Pair:\nĐăng nhập vào AWS Management Console và điều hướng đến dịch vụ IAM (Identity and Access Management). Trong thanh điều hướng bên trái, chọn Roles. Tìm và chọn các role bạn đã tạo: ImageToVideoWeb-EC2-InstanceRole và ImageToVideoWeb-ServiceRole. Với mỗi role, nhấp Delete role và xác nhận việc xóa. Điều hướng đến dịch vụ EC2. Trong thanh điều hướng bên trái, dưới mục Network \u0026amp; Security, chọn Key Pairs. Tìm và chọn Key pair bạn đã tạo: ImageToVideoWeb-KeyPair. Nhấp Actions và chọn Delete. Xác nhận việc xóa. Kiểm tra Tài nguyên và Chi phí: Truy cập AWS Billing Dashboard (https://console.aws.amazon.com/billing/). Kiểm tra phần Bills hoặc Cost Explorer để đảm bảo không còn tài nguyên nào đang chạy và không có chi phí phát sinh bất thường sau workshop. Bạn nên tạo thói quen dọn dẹp tài nguyên sau mỗi buổi thực hành hoặc bài lab, đặc biệt khi dùng tài khoản trong Free Tier hoặc học tập.\n"
+},
+{
+	"uri": "/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
