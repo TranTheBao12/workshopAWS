@@ -1,4 +1,4 @@
-baseURL = "https://tranthebao12.github.io/WORKSHOPAWS/"
+baseURL = "https://tranthebao12.github.io/workshopAWS/"
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
 
